@@ -1,4 +1,4 @@
-#Django Setup
+# Django Setup
 
 move to django directory : `cd kaisensdata2`
 
@@ -9,6 +9,6 @@ migrate : `python manage.py migrate`
 run : `python manage.py runserver 8080`
 
 
-#Angular Setup
+# Angular Setup
 
 run : `ng serve --port 8081`

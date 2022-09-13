@@ -1,0 +1,14 @@
+.navbar-expand {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: #2A2D3E !important;
+}
+
+*{background-color: #212332;
+color: white;}
+
+
+.nav-link,.navbar-nav,img,.navbar-brand{
+    background: #2A2D3E;
+}

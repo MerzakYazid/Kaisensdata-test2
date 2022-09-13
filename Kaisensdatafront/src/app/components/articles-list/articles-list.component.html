@@ -1,0 +1,61 @@
+<div class="list row">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="title">Titre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          [(ngModel)]="article.title"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          class="form-control"
+          id="description"
+          required
+          [(ngModel)]="article.description"
+          name="description"
+        />
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="publier" required
+        [(ngModel)]="article.published">
+        <label class="form-check-label" for="publier">Publier l'article</label>
+     </div>
+      <button (click)="saveArticle()" class="btn btn-success">Enregistrer</button>
+    </div>
+    <div *ngIf="submitted">
+      <h4>Article was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newArticle()">Ajouter</button>
+    </div>
+  </div>
+  <div class="articles">
+    <div class="col-md-6">
+      <h4>Articles List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let article of articles; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveArticle(article, i)"
+        >
+          {{ article.title }}
+        </li>
+      </ul>
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllArticles()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+        <app-article-detail
+            [viewMode]="true"
+            [currentArticle]="currentArticle"
+        ></app-article-detail>
+    </div>
+	
+  </div>

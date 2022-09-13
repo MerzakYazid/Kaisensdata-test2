@@ -1,0 +1,12 @@
+.edit-form {
+    max-width: 400px;
+    margin: auto;
+}
+
+  *{
+    color: #9B8EFF;
+  }
+  
+  .badge {
+    color: white;
+  }

@@ -1,0 +1,28 @@
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-form {
+  margin-bottom: 5%;
+}
+
+
+.articles {
+  display: flex;
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+
+*{
+  color: #9B8EFF;
+}
+
+.btn {
+  color: white;
+}

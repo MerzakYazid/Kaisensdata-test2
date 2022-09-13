@@ -1,0 +1,86 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentArticle.id">
+      <h4>Article</h4>
+      <div>
+        <label><strong>Titre:</strong></label> {{ currentArticle.title }}
+      </div>
+      <div>
+        <label><strong>Description:</strong></label>
+        {{ currentArticle.description }}
+      </div>
+      <div>
+        <label><strong>Publié:</strong></label>
+        {{ currentArticle.published ? "Oui" : "Non" }}
+      </div>
+      <a
+        class="badge badge-warning"
+        routerLink="/articles/{{ currentArticle.id }}"
+      >
+        Edit
+      </a>
+    </div>
+    <div *ngIf="!currentArticle.id">
+      <br />
+      <p>Please click on a Article...</p>
+    </div>
+  </div>
+  <ng-template #editable>
+    <div *ngIf="currentArticle" class="edit-form">
+      <h4>Article</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Titre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentArticle.title"
+            name="title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            [(ngModel)]="currentArticle.description"
+            name="description"
+          />
+        </div>
+        <div class="form-group">
+          <label><strong>Publié :</strong></label>
+          {{ currentArticle.published ? "Oui" : "Non" }}
+        </div>
+      </form>
+      <button
+        class="badge badge-primary mr-2"
+        *ngIf="currentArticle.published"
+        (click)="updatePublished(false)"
+      >
+        UnPublish
+      </button>
+      <button
+        *ngIf="!currentArticle.published"
+        class="badge badge-primary mr-2"
+        (click)="updatePublished(true)"
+      >
+        Publish
+      </button>
+      <button class="badge badge-danger mr-2" (click)="deleteArticle()">
+        Delete
+      </button>
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateArticle()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+    <div *ngIf="!currentArticle">
+      <br />
+      <p>Cannot access this Article...</p>
+    </div>
+  </ng-template>
